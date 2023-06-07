@@ -6,6 +6,10 @@ const morgan = require('morgan')
 const exphbs = require('express-handlebars')
 const passport = require('passport')
 const session = require('express-session')
+const MongoStore = require('connect-mongo')
+
+
+
 const PORT = process.env.PORT || 3000
 
 const connectDB = require('./config/db')
@@ -38,6 +42,9 @@ app.use(
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI
+    })
 }))
 
 // Passport middleware
@@ -51,7 +58,6 @@ app.use(express.static(path.join(__dirname,
 // Routes
 app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))
-
 
 app.listen(
   PORT, 

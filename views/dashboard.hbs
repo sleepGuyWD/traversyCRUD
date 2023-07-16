@@ -16,7 +16,7 @@
     {{#each stories}}
       <tr>
           <td><a href="/stories/{{_id}}">{{title}}</a></td>
-          <td>{{createdAt}}</td>
+          <td>{{formatDate createdAt 'MMMM, Do YYYY,  h:mm:ss a'}}</td>
           <td><span class="dash-status">{{status}}</span></td>
           <td></td>
       </tr>
@@ -29,4 +29,4 @@
     <p>You have not created any stories</p>
 {{/if}}
 
-{{!Continue from 1:33 part 2}}
+<!--3:29 part 2 7/16/2023-->

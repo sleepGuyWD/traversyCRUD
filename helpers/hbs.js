@@ -31,7 +31,7 @@ module.exports = {
       return ''
     }
   },
-  select: function (selected, options) {
+  //select: function (selected, options) {
     return options
       .fn(this)
       .replace(
